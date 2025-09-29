@@ -67,6 +67,11 @@ Visa hur programmet funkar med exempel.
 
 ### 6. **Struktur (mapp & filer)**
 
+![FlowChart](images/flowchart.png)
+
+
+EXEMPEL:
+
 Förklara hur projektet är organiserat.
 
 ```
@@ -81,6 +86,7 @@ ai-movie-recommender/
 ├── requirements.txt    # Beroenden
 ├── README.md           # Dokumentation
 ```
+
 
 ---
 
