@@ -93,6 +93,10 @@ Lista gruppmedlemmar + vad de bidrog med.
 * Person 3: GUI/visualisering
 * Person 4: Extra features + integration
 
+* Alex = Zaitex89
+* Patrik = KFCGitten
+* Andre =
+* Allan = 
 ---
 
 ### 8. **Framtida utveckling (valfritt men ger plus)**
