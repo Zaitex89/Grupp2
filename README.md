@@ -1,8 +1,3 @@
-# Grupp2
-
-Bra fråga! En **README.md** är superviktig för att ge ett professionellt intryck – och ni kan lätt få pluspoäng om ni gör den tydlig och välstrukturerad. Här är ett förslag på **struktur för er README** till filmrekommendationsprojektet:
-
----
 
 ## 📑 Förslag på README-struktur
 
@@ -108,7 +103,3 @@ Ex:
 * Rekommendationer baserat på användarhistorik.
 * Integration med Spotify för filmsoundtracks 😄.
 
----
-
-Vill du att jag skriver ett **färdigt exempel på README.md** för ert projekt (så ni kan kopiera och anpassa)?
-s
