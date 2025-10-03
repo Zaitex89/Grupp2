@@ -17,6 +17,24 @@ class OMDbClient:
         """Fetch full details for a movie by its IMDb ID"""
         return self._make_request({"i": imdb_id})
 
+    def get_movie_by_title(self, title: str):
+        """Fetch full details for movie by title"""
+        
+        # first: exact titel
+        exact = self._make_request({"t": title})
+        if exact.get("Response") == "True":
+            return exact
+        
+        # Fallback: search via 's'
+        search = self._make_request({"t": title})
+        if search.get("Response") == "True":
+            first_hit = search["Search"][0]
+            return self.get_movie_details(first_hit["imdbID"])
+        
+        return {"Response": "False", "Error": f"No match for '{title}'"}
+        
+        
+    
     def search_movies(self, keyword: str, page: int = 1):
         """Search for movies by keyword and print sorted results"""
         data = self._make_request({"s": keyword, "page": page})

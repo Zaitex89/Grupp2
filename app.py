@@ -49,19 +49,33 @@ def recommend():
 
     enriched_movies = []
     for item in ai_response:
-        title = item["title"] # 
+        title = item["title"] 
         reason = item["reason"]
-        details = omdb.get_movie_details(imdb_id) # här behöver vi klämma in imdb_id på något vis eller alternativt lösa en funktion som anropar API genom titel istället
+        details = omdb.get_movie_by_title(title) 
 
-        enriched_movies.append({
-            "title": details.get("Title"),
-            "year": details.get("Year"),
-            "poster": details.get("Poster"),
-            "rating": details.get("imdbRating"),
-            "plot": details.get("Plot"),
-            "genre": details.get("Genre"),
-            "reason": reason,
-            "imdb_link": f"https://www.imdb.com/title/{details.get('imdbID')}/"
-        })
+        if details.get("Response") == "True":
+            enriched_movies.append({
+                "title": details.get("Title"),
+                "year": details.get("Year"),
+                "poster": details.get("Poster"),
+                "rating": details.get("imdbRating"),
+                "plot": details.get("Plot"),
+                "genre": details.get("Genre"),
+                "reason": reason,
+                "imdb_link": f"https://www.imdb.com/title/{details.get('imdbID')}/"
+            })
+        else:
+            # Hittas inte filmen, lägg till med ändå med AI:s info
+            enriched_movies.append({
+                "title": title,
+                "year": "N/A",
+                "poster": None,
+                "rating": "N/A",
+                "plot": "Not found in OMDb",
+                "genre": "N/A",
+                "reason": reason,
+                "imdb_link": None
+
+            })
 
     return render_template('results.html', movies=enriched_movies, mood=mood)
