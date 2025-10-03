@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Movie Recommender</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">🎬 AI Movie Recommender</h1>
+        <p class="text-center">Get personalized movie recommendations based on your mood and favorite film.</p>
+
+        <form action="/recommend" method="POST" class="mx-auto" style="max-width: 500px;">
+            <div class="mb-3">
+                <label for="favorite_movie" class="form-label">Favorite movie or genre</label>
+                <input type="text" class="form-control" id="favorite_movie" name="favorite_movie" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="mood" class="form-label">How are you feeling?</label>
+                <select class="form-select" id="mood" name="mood" required>
+                    <option value="" disabled selected>Select your mood</option>
+                    <option value="happy">😄 Happy</option>
+                    <option value="sad">😢 Sad</option>
+                    <option value="nostalgic">🕰️ Nostalgic</option>
+                    <option value="adventurous">🧭 Adventurous</option>
+                    <option value="romantic">❤️ Romantic</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="user_message" class="form-label">Tell us more (optional)</label>
+                <textarea class="form-control" id="user_message" name="user_message" rows="4" placeholder="What kind of movie are you in the mood for? Any preferences, themes, or vibes? Example: I want something cozy and nostalgic, maybe with a winter setting and emotional depth."></textarea>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary w-100">Recommend a movie</button>
+        </form>
+    </div>
+
+</body>
+</html>

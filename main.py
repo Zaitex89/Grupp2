@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from omdb import OMDbClient
+from flask import Flask
 
 # Load API key from .env
 load_dotenv()
