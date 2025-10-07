@@ -26,7 +26,7 @@ class OMDbClient:
             return exact
         
         # Fallback: search via 's'
-        search = self._make_request({"t": title})
+        search = self._make_request({"s": title})
         if search.get("Response") == "True":
             first_hit = search["Search"][0]
             return self.get_movie_details(first_hit["imdbID"])
