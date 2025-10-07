@@ -12,11 +12,12 @@ def main():
     
     # Initialize the recommender
     try:
-        print("Cybernet is active")
+        print("\nInitializing AI system...")
         recommender = MovieRecommender()
-        print("Cybernet ready!")
+        print("AI ready!")
     except ValueError as e:
-        print(f"Error: {e} ")
+        print(f"\nError: {e}")
+        print("implement OMDB_API_KEY and OPENAI_API_KEY .env file")
         return
     
     print("\nTell me what kind of movies you want to watch!")
