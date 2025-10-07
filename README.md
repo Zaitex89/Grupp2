@@ -3,9 +3,6 @@
 
 ### 1. **Titel och kort beskrivning**
 
-En tydlig titel + 2–3 meningar som förklarar projektet.
-Ex:
-
 > # AI Movie Recommender
 >
 > Ett Python-projekt som använder AI för att tolka vad du gillar för filmer och rekommenderar titlar från TMDb API.
@@ -18,26 +15,24 @@ Lista vad projektet kan göra.
 
 * Användaren skriver vad för filmer de gillar (fri text).
 * AI tolkar texten och hittar relevanta nyckelord.
-* TMDb API hämtar filmer baserat på sökningen.
+* OMDb API hämtar filmer baserat på sökningen.
 * Resultaten visas i ett GUI/webbapp med titel, poster och betyg.
-* (Extra) Favoritlista och statistik över genres.
 
 ---
 
 ### 3. **Installation**
 
 Hur man kör projektet.
-
 ```bash
 # Klona projektet
-git clone https://github.com/user/ai-movie-recommender.git
-cd ai-movie-recommender
+git clone git@github.com:Zaitex89/Grupp2.git
+cd Grupp2
 
 # Installera beroenden
 pip install -r requirements.txt
 
 # Kör appen
-python app.py
+återkommer
 ```
 
 ---
@@ -47,9 +42,9 @@ python app.py
 Lista vilka ni använder.
 
 * **Programspråk:** Python 3.x
-* **Bibliotek:** requests, streamlit/flask/tkinter, matplotlib, pandas
+* **Bibliotek:** requests, flask, unittest.mock
 * **AI:** OpenAI API (GPT-4) / Hugging Face Transformers
-* **Filmdata:** TMDb API
+* **Filmdata:** OMDb API
 
 ---
 
@@ -77,11 +72,11 @@ Förklara hur projektet är organiserat.
 ```
 ai-movie-recommender/
 │
-├── app.py              # Huvudprogrammet
-├── ai_module.py        # AI-del (texttolkning)
-├── api_module.py       # API-anrop till TMDb
-├── gui.py              # Frontend (GUI/webbapp)
-├── extras.py           # Extra funktioner (favoriter, statistik)
+├── 
+├── 
+├── 
+├── 
+├── 
 │
 ├── requirements.txt    # Beroenden
 ├── README.md           # Dokumentation
@@ -101,15 +96,23 @@ Lista gruppmedlemmar + vad de bidrog med.
 
 * Alex = Zaitex89
 * Patrik = KFCGitten
-* Andre =
-* Allan = 
+* Andre = tei312    
+* Allan = AllanAkkus
 ---
 
-### 8. **Framtida utveckling (valfritt men ger plus)**
+### 8. **Vem har gjort vad**
 
-Ex:
+Alex 
+```
+-hela omdb folder
+-tests folder -> test_omdb_client.py
+-.env
+-main.py
+-README.md strukturen
 
-* Stöd för flera språk.
-* Rekommendationer baserat på användarhistorik.
-* Integration med Spotify för filmsoundtracks 😄.
+```
+
+
+
+
 
