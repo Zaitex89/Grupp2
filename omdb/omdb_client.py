@@ -19,12 +19,12 @@ class OMDbClient:
 
     def get_movie_by_title(self, title: str):
         """Fetch full details for movie by title"""
-        
+
         # first: exact titel
         exact = self._make_request({"t": title})
         if exact.get("Response") == "True":
             return exact
-        
+
         # Fallback: search via 's'
         search = self._make_request({"s": title})
         if search.get("Response") == "True":
