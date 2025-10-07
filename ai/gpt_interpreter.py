@@ -54,6 +54,9 @@ class GPTMovieInterpreter:
             
             # Parse GPT response
             content = response.choices[0].message.content
+            if not content:
+                content = "{}"  # Tom JSON som fallback
+
             
             # Try to parse as JSON
             try:
@@ -127,7 +130,11 @@ class GPTMovieInterpreter:
                 max_tokens=150
             )
             
-            scores = json.loads(response.choices[0].message.content)
+            content = response.choices[0].message.content or "{}"  # fallback to empty JSON
+            try:
+                scores = json.loads(content)
+            except json.JSONDecodeError:
+                scores = {}  # fallback if GPT returns invalid JSON
             
             # Add GPT scores to movies
             for movie in movies:

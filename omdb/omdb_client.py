@@ -35,7 +35,7 @@ class OMDbClient:
             print(f"API error: {e}")
             return []
     
-    def get_movie_details(self, imdb_id: str = None, title: str = None) -> Optional[Dict]:
+    def get_movie_details(self, imdb_id: Optional[str] = None, title: Optional[str] = None) -> Optional[Dict]:
         """Get detailed information about a specific movie."""
         if not imdb_id and not title:
             return None
