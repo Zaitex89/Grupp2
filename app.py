@@ -1,10 +1,8 @@
 from flask import Flask, render_template, request
-from omdb.omdb_client import OMDbClient
-#from ai.ai_client import get_ai_recommendations
-import os
+from recommender.movie_recommender import MovieRecommender
 
 app = Flask(__name__)
-omdb = OMDbClient(api_key=os.getenv("OMDB_API_KEY"))
+recommender = MovieRecommender()
 
 """
 1. Användaren fyller i formuläret
@@ -27,6 +25,11 @@ def recommend():
     mood = request.form.get('mood')
     user_message = request.form.get('user_message')
 
+    user_input = f"I like '{favorite_movie}', I'm feeling '{mood}'. {user_message}"
+    ranked_movies = recommender.get_recommendations(user_input)
+
+    return render_template('results.html', movies=ranked_movies)
+    """
     # Skicka till AI
     prompt = (
         f"I'm in the mood for a movie. My current mood is '{mood}', "
@@ -34,48 +37,28 @@ def recommend():
         f"Here's some extra context: '{user_message}'."
         f"Please recommend 3 movies with short explanations."
     )
-    ai_response = get_ai_recommendations(prompt)
-
-    """
+    
     Här tänker jag att svar från AI kanske kan komma som en lista med dict {title: *, reason: *}
 
-    [
-    {"title": "Inception", "reason": "You like mind-bending sci-fi."},
-    {"title": "The Secret Life of Walter Mitty", "reason": "You're feeling adventurous."},
-    {"title": "Her", "reason": "You enjoy emotional, futuristic stories."}
-    ]
+    ai_response = [
+        {"title": "Inception", "reason": "You like mind-bending sci-fi."},
+        {"title": "The Secret Life of Walter Mitty", "reason": "You're feeling adventurous."},
+        {"title": "Her", "reason": "You enjoy emotional, futuristic stories."}
+        ]
+    
+    ai_response = get_ai_recommendations(prompt)
+    
+    raw_movies = []
+    for term in search_terms:
+        results = omdb.search_movies(term)
+        raw_movies.extend(results)
 
+    detailed_movies = []
+    for item in raw_movies:
+        imdb_id = item.get("imdbID")
+        details = omdb.get_movie_details(imdb_id=imdb_id)
+        if details:
+            detailed_movies.append(details)
+    
+    ranked_movies = gpt.get_better_recommendations(detailed_movies, user_input)
     """
-
-    enriched_movies = []
-    for item in ai_response:
-        title = item["title"] 
-        reason = item["reason"]
-        details = omdb.get_movie_by_title(title) 
-
-        if details.get("Response") == "True":
-            enriched_movies.append({
-                "title": details.get("Title"),
-                "year": details.get("Year"),
-                "poster": details.get("Poster"),
-                "rating": details.get("imdbRating"),
-                "plot": details.get("Plot"),
-                "genre": details.get("Genre"),
-                "reason": reason,
-                "imdb_link": f"https://www.imdb.com/title/{details.get('imdbID')}/"
-            })
-        else:
-            # Hittas inte filmen, lägg till med ändå med AI:s info
-            enriched_movies.append({
-                "title": title,
-                "year": "N/A",
-                "poster": None,
-                "rating": "N/A",
-                "plot": "Not found in OMDb",
-                "genre": "N/A",
-                "reason": reason,
-                "imdb_link": None
-
-            })
-
-    return render_template('results.html', movies=enriched_movies, mood=mood)
