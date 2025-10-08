@@ -18,7 +18,11 @@ def mock_response(json_data, status=200):
 def test_search_movies_success(mock_get, omdb_client):
     mock_get.return_value = mock_response({
         "Response": "True",
-        "Search": [{"Title": "Inception", "Year": "2010"}]
+        "Search": [{
+            "Title": "Inception",
+            "Year": "2010",
+            "imdbID": "tt1375666"
+        }]
     })
 
     result = omdb_client.search_movies("Inception")
@@ -85,5 +89,5 @@ def test_get_movie_details_not_found(mock_get, omdb_client):
 
 # Test get_movie_details returns None when neither id nor title provided
 def test_get_movie_details_no_args(omdb_client):
-    result = omdb_client.get_movie_details()
-    assert result is None
+    with pytest.raises(ValueError):
+        omdb_client.get_movie_details()
