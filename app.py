@@ -62,3 +62,5 @@ def recommend():
     
     ranked_movies = gpt.get_better_recommendations(detailed_movies, user_input)
     """
+if __name__ == "__main__":
+    app.run()
