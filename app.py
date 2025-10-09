@@ -29,6 +29,7 @@ def recommend():
     ranked_movies = recommender.get_recommendations(user_input)
 
     return render_template('results.html', movies=ranked_movies)
+
     """
     # Skicka till AI
     prompt = (
@@ -62,3 +63,6 @@ def recommend():
     
     ranked_movies = gpt.get_better_recommendations(detailed_movies, user_input)
     """
+
+if __name__ == "__main__":
+    app.run()
