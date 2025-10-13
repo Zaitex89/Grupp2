@@ -1,11 +1,6 @@
-
-## 📑 Förslag på README-struktur
-
-### 1. **Titel och kort beskrivning**
-
 > # AI Movie Recommender
 >
-> Ett Python-projekt som använder AI för att tolka vad du gillar för filmer och rekommenderar titlar från TMDb API.
+> Ett Python-projekt som använder AI för att tolka vad du gillar för filmer och rekommenderar titlar från OMDb API.
 
 ---
 
@@ -30,33 +25,35 @@ cd Grupp2
 
 # Installera beroenden
 pip install -r requirements.txt
+skapa .env fil som innehåller OMDB_API_KEY="API NYCKEL HÄR" och OPENAI_API_KEY"API NYCKEL HÄR"
 
 # Kör appen
-återkommer
+python main.py för cli versionen
+python app.py för flask versionen (du får en länk http://127.0.0.1:5000 som tar dig till hemsidan)
+
+# Pytest
+för testning av OMDb clienten kör du pytest tests\test_omdb_client.py
 ```
 
 ---
 
 ### 4. **Tekniker & API:er**
 
-Lista vilka ni använder.
-
 * **Programspråk:** Python 3.x
-* **Bibliotek:** requests, flask, unittest.mock
-* **AI:** OpenAI API (GPT-4) / Hugging Face Transformers
+* **Bibliotek:** requirements.txt
+* **AI:** OpenAI API (GPT-4)
 * **Filmdata:** OMDb API
 
 ---
 
 ### 5. **Användning**
 
-Visa hur programmet funkar med exempel.
-
 * Starta appen
-* Skriv in: *“Jag gillar sci-fi med rymdresor”*
-* Appen visar en lista på filmer (t.ex. Interstellar, Gravity).
+* Skriv in: *“I like sci fi movies”*
+* main.py visar en lista på filmer (t.ex. Interstellar, Alien).
+* appy visar då istället film omslagen
 
-(Bonus: inkludera en GIF eller skärmbild på GUI:t).
+
 
 ---
 
@@ -65,19 +62,18 @@ Visa hur programmet funkar med exempel.
 ![FlowChart](images/flowchart.png)
 
 
-EXEMPEL:
 
-Förklara hur projektet är organiserat.
+Förklarar hur projektet är organiserat.
 
 ```
-ai-movie-recommender/
-│
-├── 
-├── 
-├── 
-├── 
-├── 
-│
+GRUPP2
+├── ai chat gpt interpreter
+├── images # Bilder för README.md 
+├── omdb # Hämtar api från OMDb och skickar den vidare
+├── recommender # film rekommenderaren
+├── templates # html
+├── tests #pytest
+├── .env # Behöver skapa en lokalt
 ├── requirements.txt    # Beroenden
 ├── README.md           # Dokumentation
 ```
@@ -87,12 +83,7 @@ ai-movie-recommender/
 
 ### 7. **Team**
 
-Lista gruppmedlemmar + vad de bidrog med.
-
-* Person 1: API-integration
-* Person 2: AI-modul
-* Person 3: GUI/visualisering
-* Person 4: Extra features + integration
+Lista gruppmedlemmar 
 
 * Alex = Zaitex89
 * Patrik = KFCGitten
@@ -107,8 +98,7 @@ Alex
 -hela omdb folder
 -tests folder -> test_omdb_client.py
 -.env
--main.py
--README.md strukturen
+-README.md strukturen och innehåll
 
 ```
 
