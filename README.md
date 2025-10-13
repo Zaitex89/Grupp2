@@ -4,7 +4,7 @@
 
 ---
 
-### 2. **Funktioner**
+### 1. **Funktioner**
 
 Lista vad projektet kan göra.
 
@@ -15,7 +15,7 @@ Lista vad projektet kan göra.
 
 ---
 
-### 3. **Installation**
+### 2. **Installation**
 
 Hur man kör projektet.
 ```bash
@@ -37,7 +37,7 @@ för testning av OMDb clienten kör du pytest tests\test_omdb_client.py
 
 ---
 
-### 4. **Tekniker & API:er**
+### 3. **Tekniker & API:er**
 
 * **Programspråk:** Python 3.x
 * **Bibliotek:** requirements.txt
@@ -46,7 +46,7 @@ för testning av OMDb clienten kör du pytest tests\test_omdb_client.py
 
 ---
 
-### 5. **Användning**
+### 4. **Användning**
 
 * Starta appen
 * Skriv in: *“I like sci fi movies”*
@@ -57,7 +57,7 @@ för testning av OMDb clienten kör du pytest tests\test_omdb_client.py
 
 ---
 
-### 6. **Struktur (mapp & filer)**
+### 5. **Struktur (mapp & filer)**
 
 ![FlowChart](images/flowchart.png)
 
@@ -81,7 +81,7 @@ GRUPP2
 
 ---
 
-### 7. **Team**
+### 6. **Team**
 
 Lista gruppmedlemmar 
 
@@ -91,7 +91,7 @@ Lista gruppmedlemmar
 * Allan = AllanAkkus
 ---
 
-### 8. **Vem har gjort vad**
+### 7. **Vem har gjort vad**
 
 Alex 
 ```
