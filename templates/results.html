@@ -34,7 +34,7 @@
               <p><strong>Genre:</strong> {{ movie.Genre }}</p>
               <p><strong>IMDb:</strong> {{ movie.imdbRating }}/10</p>
               <p>{{ movie.Plot }}</p>
-              <a href="{{ movie.imdb_link }}" class="btn btn-outline-light btn-sm" target="_blank">View on IMDb</a>
+              <a href="https://www.imdb.com/title/{{ movie.imdbID }}" class="btn btn-outline-light btn-sm" target="https://www.imdb.com/title/{{ movie.imdbID }}">View on IMDb</a>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
               <p><strong>Genre:</strong> {{ movie.Genre }}</p>
               <p><strong>IMDb:</strong> {{ movie.imdbRating }}/10</p>
               <p>{{ movie.Plot }}</p>
-              <a href="{{ movie.imdb_link }}" class="btn btn-outline-secondary btn-sm" target="_blank">View on IMDb</a>
+              <a href="https://www.imdb.com/title/{{ movie.imdbID }}" class="btn btn-outline-light btn-sm" target="https://www.imdb.com/title/{{ movie.imdbID }}">View on IMDb</a>
             </div>
           </div>
         </div>
