@@ -90,6 +90,36 @@ class GPTMovieInterpreter:
         terms = [w for w in words if w not in stop_words and len(w) > 2]
         return terms[:3] if terms else ['popular']
     
+    def generate_movie_commentary(self, movie: Dict, user_input: str) -> str:
+        prompt = f"""
+        User wants: "user_input"
+
+        Movie: {movie.get('Title')} ({movie.get('Year')})
+        Genre: {movie.get('Genre', 'N/A')}
+        Original Plot: {movie.get('Plot', 'NA')}
+
+        Write a brief, engaging 2-3 sentence explanation of why this movie matches what the user is looking for
+        Be specific and enthusiastic. Don't just repeat the plot - explain the match. 
+        """
+        try:
+            response = self.client.chat.completions.create(
+            model=self.model,
+            messages=[
+                {"role": "system", "content": "You are an enthusiastic movie recommender who explains why movies match user preferences."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7,
+            max_tokens=100
+        )
+
+            return response.choices[0].message.content.strip() if response.choices[0].message.content else movie.get('Plot', 'N/A')
+        
+        except Exception as e:
+            print(f"Commentary generation error:{e}")
+            return movie.get('Plot', 'N/A')
+
+
+
     def get_better_recommendations(self, movies: List[Dict], user_input: str) -> List[Dict]:
         """Use GPT to rank/filter movies based on user preference."""
         
