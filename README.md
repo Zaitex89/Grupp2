@@ -5,7 +5,7 @@
 
 > # AI Movie Recommender
 >
-> Ett Python-projekt som använder AI för att tolka vad du gillar för filmer och rekommenderar titlar från TMDb API.
+> Ett Python-projekt som använder AI för att tolka vad du gillar för filmer och rekommenderar titlar från OMDb API.
 
 ---
 
@@ -13,10 +13,11 @@
 
 Lista vad projektet kan göra.
 
-* Användaren skriver vad för filmer de gillar (fri text).
+* Användaren skriver vad för filmer de gillar (formulär + fritext).
 * AI tolkar texten och hittar relevanta nyckelord.
 * OMDb API hämtar filmer baserat på sökningen.
 * Resultaten visas i ett GUI/webbapp med titel, poster och betyg.
+* Varje sökning sparas i en lokal databas. I Cli-versionen kan vi se de 10 senaste sökningarna
 
 ---
 
@@ -32,7 +33,11 @@ cd Grupp2
 pip install -r requirements.txt
 
 # Kör appen
-återkommer
+py app.py (Flask)
+
+alternativt:
+
+py main.py (Cli) 
 ```
 
 ---
@@ -42,7 +47,7 @@ pip install -r requirements.txt
 Lista vilka ni använder.
 
 * **Programspråk:** Python 3.x
-* **Bibliotek:** requests, flask, unittest.mock
+* **Bibliotek:** requests, flask, unittest.mock, sqlite3
 * **AI:** OpenAI API (GPT-4) / Hugging Face Transformers
 * **Filmdata:** OMDb API
 
@@ -51,12 +56,31 @@ Lista vilka ni använder.
 ### 5. **Användning**
 
 Visa hur programmet funkar med exempel.
+AI ger rekommendation med inspiration från vad som matas in i formuläret (oavsett Flask eller CLI).
+Saknas godkänd API-nyckel ges ej en rekommendation från AI. 
+Då hämtas istället 5 filmer direkt från OMDb, direkt baserat på vilka ord som angetts i formuläret.
 
 * Starta appen
-* Skriv in: *“Jag gillar sci-fi med rymdresor”*
-* Appen visar en lista på filmer (t.ex. Interstellar, Gravity).
+* Skriv in information som:
+    Favorite movie or genre: [filmtitel]
+    How are you feeling?: [humör/sinnesstämning]
+    Tell us more (optional): [fritext, vilken information som helst]
 
-(Bonus: inkludera en GIF eller skärmbild på GUI:t).
+Om Flask:
+* Appen visar en lista på filmer
+* Filmtitlarna har tillhörande:
+    poster
+    info från OMDb
+    IMDb rating
+    AI kommentar
+
+Om CLI:
+* Terminalen visar en lista på filmer
+* Filmtitlarna har tillhörande:
+    info från OMDb
+    IMDb rating
+    AI kommentar
+* Databas sparar vilka sökningar som har gjorts med tillhörande rekommenderade filmer.
 
 ---
 
@@ -65,21 +89,28 @@ Visa hur programmet funkar med exempel.
 ![FlowChart](images/flowchart.png)
 
 
-EXEMPEL:
-
-Förklara hur projektet är organiserat.
-
 ```
-ai-movie-recommender/
+
+ai_movie_recommender/
 │
-├── 
-├── 
-├── 
-├── 
-├── 
+├── ai/
+│   └── gpt_interpreter.py         # Tolkar användarens input med GPT och genererar AI-kommentarer
+├── omdb/
+│   └── omdb_client.py             # Hämtar filmdata från OMDb API
+├── recommender/
+│   └── movie_recommender.py       # Samordnar AI-tolkning, OMDb-sökning och filmrankning
+├── templates/
+│   ├── index.html                 # Startsida med formulär för användarinput
+│   └── results.html               # Visar rekommenderade filmer med AI-kommentarer
+├── tests/
+│   └── test_omdb_client.py        # Enhetstester för OMDb-klienten
+├── app.py                         # Flask-applikationens entrypoint
+├── featuresseached.py             # Skapar & hanterar databas med info om tidigare filmsökningar
+├── main.py                        # CLI-version av programmet
 │
-├── requirements.txt    # Beroenden
-├── README.md           # Dokumentation
+├── requirements.txt               # Lista över beroenden (Flask, requests, etc.)
+└── README.md                      # Projektbeskrivning, installation och användning
+
 ```
 
 
@@ -89,30 +120,39 @@ ai-movie-recommender/
 
 Lista gruppmedlemmar + vad de bidrog med.
 
-* Person 1: API-integration
-* Person 2: AI-modul
-* Person 3: GUI/visualisering
-* Person 4: Extra features + integration
+* Alex: API-integration
+* Allan: AI-modul
+* Patrik: GUI/visualisering
+* André: Extra features, databas
 
 * Alex = Zaitex89
 * Patrik = KFCGitten
 * Andre = tei312    
 * Allan = AllanAkkus
----
 
 ### 8. **Vem har gjort vad**
 
 Alex 
-```
--hela omdb folder
--tests folder -> test_omdb_client.py
--.env
--main.py
--README.md strukturen
+
+* hela omdb folder
+* tests folder -> test_omdb_client.py
+* .env
+* main.py
+* README.md strukturen
+
+Patrik
+* README.md, information, projekt-strukturkarta
+* app.py
+* bug-fix
+* templates -> index.html, results.html
+
+Allan
+* gpt_interpreter.py
+* recommender -> movie_recommender.py
+* integration av AI
+
+André
+* Databas-hantering
+* featuressearched.py
 
 ```
-
-
-
-
-

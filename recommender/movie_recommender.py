@@ -47,16 +47,18 @@ class MovieRecommender:
         output.append(f"Genre: {movie.get('Genre', 'N/A')}")
         output.append(f"Director: {movie.get('Director', 'N/A')}")
         
-        plot = movie.get('Plot', 'N/A')
+        
+        full_plot = movie.get('Plot', 'N/A')
+        plot = full_plot
         if plot != 'N/A' and len(plot) > 200:
             plot = plot[:200] + '...'
         output.append(f"Plot: {plot}")
-        
+
         if movie.get('gpt_score'):
             output.append(f"AI Match Score: {movie['gpt_score']}/5")
         
-        # Add AI commentary here
-        if movie.get('ai_commentary'):
+        # Only show AI commentary if it's not a duplicate of the full plot
+        if movie.get('ai_commentary') and movie['ai_commentary'] != full_plot:
             output.append(f"AI Commentary: {movie['ai_commentary']}")
         
         return '\n'.join(output)

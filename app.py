@@ -26,9 +26,9 @@ def recommend():
     user_message = request.form.get('user_message')
 
     user_input = f"I like '{favorite_movie}', I'm feeling '{mood}'. {user_message}"
-    ranked_movies = recommender.get_recommendations(user_input)
-
-    return render_template('results.html', movies=ranked_movies)
+    recommendations = recommender.get_recommendations(user_input)
+  
+    return render_template('results.html', movies=recommendations)
 
     """
     # Skicka till AI
@@ -39,8 +39,8 @@ def recommend():
         f"Please recommend 3 movies with short explanations."
     )
     
+    # exempel
     Här tänker jag att svar från AI kanske kan komma som en lista med dict {title: *, reason: *}
-
     ai_response = [
         {"title": "Inception", "reason": "You like mind-bending sci-fi."},
         {"title": "The Secret Life of Walter Mitty", "reason": "You're feeling adventurous."},
