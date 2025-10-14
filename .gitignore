@@ -5,4 +5,8 @@
 __pycache__/
 *.pyc
 
+# venv folder
 venv/
+
+# Database
+*.db
