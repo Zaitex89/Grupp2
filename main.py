@@ -50,7 +50,7 @@ def main():
                 print("Thanks for using Cybernet Movie Recommender. Goodbye!")
                 break
 
-            # 🧠 NEW FEATURE: Show search history
+            # Show search history
             if user_input.lower() == "history":
                 last_searches = get_last_10()
                 if not last_searches:
