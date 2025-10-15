@@ -33,6 +33,12 @@
               <h5 class="card-title">{{ movie.Title }} ({{ movie.Year }})</h5>
               <p><strong>Genre:</strong> {{ movie.Genre }}</p>
               <p><strong>IMDb:</strong> {{ movie.imdbRating }}/10</p>
+              {% if movie.gpt_score %}
+                <p><strong>AI Match Score:</strong> {{ movie.gpt_score }}/5</p>
+              {% endif %}
+              {% if movie.ai_commentary and movie.ai_commentary != movie.Plot %}
+                <p><strong>AI Commentary:</strong> {{ movie.ai_commentary }}</p>
+              {% endif %}
               <p>{{ movie.Plot }}</p>
               <a href="https://www.imdb.com/title/{{ movie.imdbID }}" class="btn btn-outline-light btn-sm" target="https://www.imdb.com/title/{{ movie.imdbID }}">View on IMDb</a>
             </div>
@@ -53,6 +59,12 @@
               <h5 class="card-title">{{ movie.Title }} ({{ movie.Year }})</h5>
               <p><strong>Genre:</strong> {{ movie.Genre }}</p>
               <p><strong>IMDb:</strong> {{ movie.imdbRating }}/10</p>
+              {% if movie.gpt_score %}
+                <p><strong>AI Match Score:</strong> {{ movie.gpt_score }}/5</p>
+              {% endif %}
+              {% if movie.ai_commentary and movie.ai_commentary != movie.Plot %}
+                <p><strong>AI Commentary:</strong> {{ movie.ai_commentary }}</p>
+              {% endif %}
               <p>{{ movie.Plot }}</p>
               <a href="https://www.imdb.com/title/{{ movie.imdbID }}" class="btn btn-outline-light btn-sm" target="https://www.imdb.com/title/{{ movie.imdbID }}">View on IMDb</a>
             </div>

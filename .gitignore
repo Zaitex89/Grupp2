@@ -5,5 +5,8 @@ history.db
 __pycache__/
 *.pyc
 
+# venv folder
 venv/
 
+# Database
+*.db
