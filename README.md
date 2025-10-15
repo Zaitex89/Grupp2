@@ -101,7 +101,9 @@ Alex
 -README.md strukturen och innehåll
 
 ```
-
+André 
+- Hela featuressearched.py 
+- Delar av main.py som har koppling till featuressearched.py du ser vilka genom //André
 
 
 
