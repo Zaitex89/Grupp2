@@ -18,7 +18,7 @@ def main():
     print("AI MOVIE RECOMMENDER (Powered by GPT using shattered hopes and tears)")
     print("="*60)
 
-    # Initialize database // André 
+    # Initialize database
     init_db()
 
     # Initialize the recommender
@@ -38,7 +38,7 @@ def main():
     print('  - "I need a good cry, something emotional"')
     print('  - "Action movies with great car chases"')
     print('  - "Something my kids would enjoy"')
-    print("Type 'history' to view your last 10 searches.") # wrote this //André
+    print("Type 'history' to view your last 10 searches.")
     print("Type 'quit' to exit.\n")
 
     while True:
@@ -50,26 +50,23 @@ def main():
                 print("Thanks for using Cybernet Movie Recommender. Goodbye!")
                 break
 
-             
-            if user_input.lower() == "history": #This part is mine //André
-                last_searches = get_last_10()  # Fetches the 10 most recent searches from the database // André
-            if not last_searches:
-                print("\nNo previous searches found.")  # Informs user if no past searches exist // André
-            else:
-                print("\n" + "="*60)  # Prints a visual separator line
-                print("PAST 10 SEARCHES")  # Prints section title
-                print("="*60)  # Another separator line
-
-                for idx, record in enumerate(last_searches, 1):  # Loops through each search record with numbering
-                    print(f"\n[{idx}] {record['created_at']}")  # Shows search number and timestamp
-                    print(f"Prompt: {record['prompt']}")  # Displays what the user searched for
-                    print("Movies:")  # Header before listing movies
-
-                    for movie in record['movies']:  # Loops through each movie in the search result
-                        print(f"  - {movie.get('Title', 'Unknown')} ({movie.get('Year', 'N/A')})")  # Prints movie title and year
-
-                print("\n" + "="*60)  # Prints a closing separator line for readability
-            continue
+            # 🧠 NEW FEATURE: Show search history
+            if user_input.lower() == "history":
+                last_searches = get_last_10()
+                if not last_searches:
+                    print("\nNo previous searches found.")
+                else:
+                    print("\n" + "="*60)
+                    print("PAST 10 SEARCHES")
+                    print("="*60)
+                    for idx, record in enumerate(last_searches, 1):
+                        print(f"\n[{idx}] {record['created_at']}")
+                        print(f"Prompt: {record['prompt']}")
+                        print("Movies:")
+                        for movie in record['movies']:
+                            print(f"  - {movie.get('Title', 'Unknown')} ({movie.get('Year', 'N/A')})")
+                    print("\n" + "="*60)
+                continue
 
             if not user_input:
                 print("Please describe what kind of movies you'd like to watch.")
@@ -78,7 +75,7 @@ def main():
             # Get AI-powered recommendations
             recommendations = recommender.get_recommendations(user_input)
 
-            # Save the search + results in the database // André
+            # Save the search + results in the database
             save_to_history(user_input, recommendations)
 
             # Display recommendations
