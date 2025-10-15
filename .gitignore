@@ -1,6 +1,6 @@
 # Ignore secrets
 .env
-
+history.db
 # Python cache
 __pycache__/
 *.pyc

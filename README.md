@@ -1,15 +1,10 @@
-
-## 📑 Förslag på README-struktur
-
-### 1. **Titel och kort beskrivning**
-
 > # AI Movie Recommender
 >
 > Ett Python-projekt som använder AI för att tolka vad du gillar för filmer och rekommenderar titlar från OMDb API.
 
 ---
 
-### 2. **Funktioner**
+### 1. **Funktioner**
 
 Lista vad projektet kan göra.
 
@@ -21,7 +16,7 @@ Lista vad projektet kan göra.
 
 ---
 
-### 3. **Installation**
+### 2. **Installation**
 
 Hur man kör projektet.
 ```bash
@@ -31,6 +26,7 @@ cd Grupp2
 
 # Installera beroenden
 pip install -r requirements.txt
+skapa .env fil som innehåller OMDB_API_KEY="API NYCKEL HÄR" och OPENAI_API_KEY"API NYCKEL HÄR"
 
 # Kör appen
 py app.py (Flask)
@@ -38,17 +34,22 @@ py app.py (Flask)
 alternativt:
 
 py main.py (Cli) 
+python main.py för cli versionen
+python app.py för flask versionen (du får en länk http://127.0.0.1:5000 som tar dig till hemsidan)
+
+# Pytest
+för testning av OMDb clienten kör du pytest tests\test_omdb_client.py
 ```
 
 ---
 
-### 4. **Tekniker & API:er**
-
-Lista vilka ni använder.
+### 3. **Tekniker & API:er**
 
 * **Programspråk:** Python 3.x
 * **Bibliotek:** requests, flask, unittest.mock, sqlite3
 * **AI:** OpenAI API (GPT-4) / Hugging Face Transformers
+* **Bibliotek:** requirements.txt
+* **AI:** OpenAI API (GPT-4)
 * **Filmdata:** OMDb API
 
 ---
@@ -81,10 +82,18 @@ Om CLI:
     IMDb rating
     AI kommentar
 * Databas sparar vilka sökningar som har gjorts med tillhörande rekommenderade filmer.
+### 4. **Användning**
+
+* Starta appen
+* Skriv in: *“I like sci fi movies”*
+* main.py visar en lista på filmer (t.ex. Interstellar, Alien).
+* appy visar då istället film omslagen
+
+
 
 ---
 
-### 6. **Struktur (mapp & filer)**
+### 5. **Struktur (mapp & filer)**
 
 ![FlowChart](images/flowchart.png)
 
@@ -111,28 +120,48 @@ ai_movie_recommender/
 ├── requirements.txt               # Lista över beroenden (Flask, requests, etc.)
 └── README.md                      # Projektbeskrivning, installation och användning
 
+
+Förklarar hur projektet är organiserat.
+
+```
+GRUPP2
+├── ai chat gpt interpreter
+├── images # Bilder för README.md 
+├── omdb # Hämtar api från OMDb och skickar den vidare
+├── recommender # film rekommenderaren
+├── templates # html
+├── tests #pytest
+├── .env # Behöver skapa en lokalt
+├── requirements.txt    # Beroenden
+├── README.md           # Dokumentation
 ```
 
 
 ---
 
-### 7. **Team**
-
-Lista gruppmedlemmar + vad de bidrog med.
+### 6. **Team**
 
 * Alex: API-integration
 * Allan: AI-modul
 * Patrik: GUI/visualisering
 * André: Extra features, databas
+Lista gruppmedlemmar 
 
 * Alex = Zaitex89
 * Patrik = KFCGitten
 * Andre = tei312    
 * Allan = AllanAkkus
 
-### 8. **Vem har gjort vad**
+### 7. **Vem har gjort vad**
 
 Alex 
+```
+-hela omdb folder
+-tests folder -> test_omdb_client.py
+-.env
+-README.md strukturen och innehåll
+
+```
 
 * hela omdb folder
 * tests folder -> test_omdb_client.py
