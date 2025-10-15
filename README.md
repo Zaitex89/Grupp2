@@ -113,31 +113,9 @@ ai_movie_recommender/
 └── README.md                      # Projektbeskrivning, installation och användning
 
 
-Förklarar hur projektet är organiserat.
-
-```
-GRUPP2
-├── ai chat gpt interpreter
-├── images # Bilder för README.md 
-├── omdb # Hämtar api från OMDb och skickar den vidare
-├── recommender # film rekommenderaren
-├── templates # html
-├── tests #pytest
-├── .env # Behöver skapa en lokalt
-├── requirements.txt    # Beroenden
-├── README.md           # Dokumentation
-```
-
-
 ---
 
 ### 6. **Team**
-
-* Alex: API-integration
-* Allan: AI-modul
-* Patrik: GUI/visualisering
-* André: Extra features, databas
-Lista gruppmedlemmar 
 
 * Alex = Zaitex89
 * Patrik = KFCGitten
@@ -145,21 +123,21 @@ Lista gruppmedlemmar
 * Allan = AllanAkkus
 
 ### 7. **Vem har gjort vad**
-
-Alex 
+ 
 ```
--hela omdb folder
--tests folder -> test_omdb_client.py
--.env
--README.md strukturen och innehåll
+Alex
+* hela omdb folder
+* tests folder -> test_omdb_client.py
+* .env
+* README.md strukturen och innehåll förutom fil/mapp strukturen
 
-```
 André 
-- Hela featuressearched.py 
-- Delar av main.py som har koppling till featuressearched.py du ser vilka genom //André
+* Hela featuressearched.py 
+* Delar av main.py som har koppling till featuressearched.py du ser vilka genom //André
+* Databas-hantering
 
 Patrik
-* README.md, information, projekt-strukturkarta
+* README.md, information
 * app.py
 * bug-fix
 * templates -> index.html, results.html
@@ -168,9 +146,5 @@ Allan
 * gpt_interpreter.py
 * recommender -> movie_recommender.py
 * integration av AI
-
-André
-* Databas-hantering
-* featuressearched.py
 
 ```
