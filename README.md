@@ -54,7 +54,7 @@ för testning av OMDb clienten kör du pytest tests\test_omdb_client.py
 
 ---
 
-### 5. **Användning**
+### 4. **Användning**
 
 Visa hur programmet funkar med exempel.
 AI ger rekommendation med inspiration från vad som matas in i formuläret (oavsett Flask eller CLI).
@@ -82,14 +82,6 @@ Om CLI:
     IMDb rating
     AI kommentar
 * Databas sparar vilka sökningar som har gjorts med tillhörande rekommenderade filmer.
-### 4. **Användning**
-
-* Starta appen
-* Skriv in: *“I like sci fi movies”*
-* main.py visar en lista på filmer (t.ex. Interstellar, Alien).
-* appy visar då istället film omslagen
-
-
 
 ---
 
