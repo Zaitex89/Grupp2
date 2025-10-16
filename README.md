@@ -63,24 +63,24 @@ Då hämtas istället 5 filmer direkt från OMDb, direkt baserat på vilka ord s
 
 * Starta appen
 * Skriv in information som:
-    Favorite movie or genre: [filmtitel]
-    How are you feeling?: [humör/sinnesstämning]
-    Tell us more (optional): [fritext, vilken information som helst]
+   * Favorite movie or genre: [filmtitel]
+   * How are you feeling?: [humör/sinnesstämning]
+   * Tell us more (optional): [fritext, vilken information som helst]
 
 Om Flask:
 * Appen visar en lista på filmer
 * Filmtitlarna har tillhörande:
-    poster
-    info från OMDb
-    IMDb rating
-    AI kommentar
+   * poster
+   * info från OMDb
+   * IMDb rating
+   * AI kommentar
 
 Om CLI:
 * Terminalen visar en lista på filmer
 * Filmtitlarna har tillhörande:
-    info från OMDb
-    IMDb rating
-    AI kommentar
+   * info från OMDb
+   * IMDb rating
+   * AI kommentar
 * Databas sparar vilka sökningar som har gjorts med tillhörande rekommenderade filmer.
 
 ---
@@ -111,7 +111,7 @@ ai_movie_recommender/
 │
 ├── requirements.txt               # Lista över beroenden (Flask, requests, etc.)
 └── README.md                      # Projektbeskrivning, installation och användning
-
+```
 
 ---
 
@@ -124,7 +124,7 @@ ai_movie_recommender/
 
 ### 7. **Vem har gjort vad**
  
-```
+
 Alex
 * hela omdb folder
 * tests folder -> test_omdb_client.py
